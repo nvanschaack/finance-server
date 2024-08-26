@@ -28,21 +28,21 @@ app.post('/api/data', (req, res) => {
 //using GET method here because were just reading data from this API endpoint (READ in CRUD methods)
 //COP
 app.get('/api/COPdata', (req,res)=> {
-    fetch(`https://www.alphavantage.co/query?function=WTI&interval=daily&entitlement=delayed&apikey=F67UFNIP0NRAM1GI`)
+    fetch(`https://www.alphavantage.co/query?function=WTI&interval=daily&entitlement=delayed&apikey=${process.env.ALPHAVANTAGEAPIKEY}`)
     .then((response)=> response.json()) //converting response from the API into readable format
     .then((data)=> res.json(data)) //this res.json is going from the server to the react application
 })
 
 //TYTR
 app.get('/api/TYTR', (req,res)=>{
-    fetch(`https://www.alphavantage.co/query?function=TREASURY_YIELD&interval=15min&entitlement=delayed&maturity=10year&apikey=F67UFNIP0NRAM1GI`)
+    fetch(`https://www.alphavantage.co/query?function=TREASURY_YIELD&interval=15min&entitlement=delayed&maturity=10year&apikey=${process.env.ALPHAVANTAGEAPIKEY}`)
     .then((response)=> response.json()) //converting response from the API into readable format
     .then((data)=>res.json(data)) //this res.json is going from the server to the react application
 })
 
 //EURO TO USD
 app.get('/api/EuroToUSD', (req,res)=>{
-    fetch(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&interval=15min&entitlement=delayed&from_currency=EUR&to_currency=USD&apikey=F67UFNIP0NRAM1GI`)
+    fetch(`https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&interval=15min&entitlement=delayed&from_currency=EUR&to_currency=USD&apikey=${process.env.ALPHAVANTAGEAPIKEY}`)
     .then((response)=> response.json()) //converting response from the API into readable format
     .then((data)=> res.json(data)) //this res.json is going from the server to the react application
 })

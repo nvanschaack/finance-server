@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3001
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 
+
+app.get('/', (req,res)=> {
+   res.send('this is the homepage')
+})
 //using POST method here because we have to pass information using req.body (CREATE in CRUD methods)
 //SP500 & VIX
 app.post('/api/data', (req, res) => {
